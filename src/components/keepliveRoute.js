@@ -87,6 +87,7 @@ class CacheRoute extends Route {
   UNSAFE_componentWillReceiveProps(curProps) {
     const { cacheState ,iskeep  } = curProps
     if(!cacheState || !iskeep ) return
+    console.log(cacheState[this.getAndcheckCacheKey()])
     this.keepliveState = cacheState[this.getAndcheckCacheKey()].state
     const newMatch = (this.computerMatchRouter(curProps) || {})
     if(this.keepliveState === 'actived' && newMatch && this.cacheMatch && newMatch.path !== this.cacheMatch.path && newMatch.url !==  this.cacheMatch.url  ){
